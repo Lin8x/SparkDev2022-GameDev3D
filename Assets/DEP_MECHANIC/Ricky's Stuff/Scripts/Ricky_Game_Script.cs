@@ -8,6 +8,7 @@ public class Ricky_Game_Script : MonoBehaviour
     //Player Stuff
     public PlayerMove player_move_script;
     public Rigidbody player_rig;
+    public Ricky_Game_Script this_script;
     
     //Objects
     public GameObject bullet_object;
@@ -49,6 +50,29 @@ public class Ricky_Game_Script : MonoBehaviour
     float walk_timer_reset = 0.45f;
     float fire_rate = 0.25f;
     bool start_fire_rate = false;
+
+
+    public void explosion_distance(float distance)
+    {
+        //Close Explosion
+        if (distance <= 30)
+        {
+            gun_impact = 600;
+            player_rig.AddForce(-bullet_in_gun_position.transform.forward * gun_impact);
+        }
+        //Mid Explosion
+        if (distance > 30 && distance <= 50)
+        {
+            gun_impact = 350;
+            player_rig.AddForce(-bullet_in_gun_position.transform.forward * gun_impact);
+        }
+        //Far Explosion
+        if (distance > 50)
+        {
+            gun_impact = 180;
+            player_rig.AddForce(-bullet_in_gun_position.transform.forward * gun_impact);
+        }
+    }
 
     void Update()
     {
@@ -147,11 +171,14 @@ public class Ricky_Game_Script : MonoBehaviour
             //Gun Recoil
             if(player_move_script.grounded == true)
             {
+                gun_impact = 350;
                 player_rig.AddForce(-bullet_in_gun_position.transform.forward * gun_impact);
             }
            ammo = ammo - 1;
            start_fire_rate = true;
            GameObject bullet = Instantiate(bullet_object, bullet_in_gun_position.position, bullet_in_gun_position.rotation);
+           explosion_script explosion = bullet.GetComponent<explosion_script>();
+           explosion.rickys_script = this_script;
            Rigidbody bullet_rig = bullet.GetComponent<Rigidbody>();
            bullet_rig.AddForce(bullet_in_gun_position.transform.forward * bullet_speed);
            gun_animator.SetInteger("state", 1);
