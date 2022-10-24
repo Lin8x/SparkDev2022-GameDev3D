@@ -3,6 +3,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
@@ -70,6 +71,12 @@ public class MenuManager : MonoBehaviour
         Application.targetFrameRate = framerateCount - 30;
         // Sets the current value to whichever framarate is being used.
         framerateDropdown.value = framerates.IndexOf((framerateCount-30).ToString() + " FPS");
+        
+    }
+
+    public void openGameLevel()
+    {
+        SceneManager.LoadScene("Concept2");
     }
 
     // Applies all video settings at the same time.
