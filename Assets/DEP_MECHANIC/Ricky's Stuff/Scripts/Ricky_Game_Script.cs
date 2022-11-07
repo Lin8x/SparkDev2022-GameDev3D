@@ -33,6 +33,8 @@ public class Ricky_Game_Script : MonoBehaviour
     public int health = 100;
     public float stamina = 10;
     public int ammo = 150;
+    public float explosion_force = 4500;
+    public float explosion_force_cap = 300;
 
     //UI Stuff
     public Slider health_slider;
@@ -54,24 +56,33 @@ public class Ricky_Game_Script : MonoBehaviour
 
     public void explosion_distance(float distance)
     {
-        //Close Explosion
-        if (distance <= 30)
+        /*   //Close Explosion
+           if (distance <= 30)
+           {
+               gun_impact = 600;
+               player_rig.AddForce(-bullet_in_gun_position.transform.forward * gun_impact);
+           }
+           //Mid Explosion
+           if (distance > 30 && distance <= 50)
+           {
+               gun_impact = 350;
+               player_rig.AddForce(-bullet_in_gun_position.transform.forward * gun_impact);
+           }
+           //Far Explosion
+           if (distance > 50)
+           {
+               gun_impact = 0;
+               player_rig.AddForce(-bullet_in_gun_position.transform.forward * gun_impact);
+           }*/
+
+        explosion_force = 9000 / distance;
+        if(explosion_force > explosion_force_cap)
         {
-            gun_impact = 600;
-            player_rig.AddForce(-bullet_in_gun_position.transform.forward * gun_impact);
+            explosion_force = explosion_force_cap;
         }
-        //Mid Explosion
-        if (distance > 30 && distance <= 50)
-        {
-            gun_impact = 350;
-            player_rig.AddForce(-bullet_in_gun_position.transform.forward * gun_impact);
-        }
-        //Far Explosion
-        if (distance > 50)
-        {
-            gun_impact = 180;
-            player_rig.AddForce(-bullet_in_gun_position.transform.forward * gun_impact);
-        }
+        player_rig.AddForce(-bullet_in_gun_position.transform.forward * explosion_force);
+        Debug.Log(explosion_force);
+
     }
 
     void Update()
