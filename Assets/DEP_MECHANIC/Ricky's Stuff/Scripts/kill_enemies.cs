@@ -5,17 +5,19 @@ using UnityEngine;
 public class kill_enemies : MonoBehaviour
 {
     public AudioSource spider_death_sound;
+    public ricky_ai enemy_script;
     float timer_to_destroy = 4.5f;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<enemy_ai>() != null)
+        enemy_script = other.GetComponent<ricky_ai>();
+        if (other.GetComponent<ricky_ai>() != null)
         {
-            float num = Random.Range(0.1f, 0.5f);
-            spider_death_sound.pitch = spider_death_sound.pitch + num;
-            spider_death_sound.Play();
-            Debug.Log(other.gameObject);
-            Destroy(other.gameObject);
+            Debug.Log("we hit");
+            enemy_script.ragdoll_death = false;
+            enemy_script.gameObject.SetActive(true);
+            enemy_script.enabled = true;
+            enemy_script.ragdoll_death = true;
         }
     }
 

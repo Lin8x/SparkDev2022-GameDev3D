@@ -81,7 +81,6 @@ public class Ricky_Game_Script : MonoBehaviour
             explosion_force = explosion_force_cap;
         }
         player_rig.AddForce(-bullet_in_gun_position.transform.forward * explosion_force);
-        Debug.Log(explosion_force);
 
     }
 
@@ -97,8 +96,8 @@ public class Ricky_Game_Script : MonoBehaviour
         health_slider.value = health;
         Stamina_slider.value = stamina;
         ammo_text.text = "Ammo: " + ammo.ToString();
-        health_text.text = health.ToString();
-        stamina_text.text = Mathf.RoundToInt(stamina).ToString();
+        health_text.text = "Health: " + health.ToString();
+        stamina_text.text = "Stamina: " + Mathf.RoundToInt(stamina).ToString();
 
         //Fire Rate
         if (start_fire_rate == true)
