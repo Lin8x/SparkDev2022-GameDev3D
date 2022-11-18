@@ -11,7 +11,8 @@ public class ItemOverview : MonoBehaviour
 
     void OnTriggerEnter(Collider triggerCollider)
     {
-        if (triggerCollider.gameObject.layer == 6){
+        Physics.IgnoreLayerCollision(0, 8);
+        if (triggerCollider.gameObject.tag == "UIHealthBarPlayer"){
             cloneBillboard = Instantiate(billboardToCreate, new Vector3(this.transform.position.x, this.transform.position.y + height, this.transform.position.z), Quaternion.identity);
             cloneBillboard.transform.parent = this.transform;
         }
@@ -19,7 +20,11 @@ public class ItemOverview : MonoBehaviour
 
     void OnTriggerExit(Collider triggerCollider)
     {
-        Destroy(cloneBillboard);
+        Physics.IgnoreLayerCollision(0, 8);
+        if (triggerCollider.gameObject.tag == "UIHealthBarPlayer")
+        {
+            Destroy(cloneBillboard);
+        }
     }
 
 }
