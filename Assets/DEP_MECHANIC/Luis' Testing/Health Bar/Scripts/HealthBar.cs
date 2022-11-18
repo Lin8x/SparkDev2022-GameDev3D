@@ -8,16 +8,17 @@ public class HealthBar : MonoBehaviour
     [SerializeField]
     private Slider healthBar;
     [SerializeField]
-    private GameObject healthText;
-    private HealthText text;
+    private GameObject myEnemy;
+    private enemy_spawner enemySript;
 
     private void Start()
     {
-        text = healthText.GetComponent<HealthText>();
+        myEnemy = myEnemy.transform.parent.parent.parent.gameObject;
+        enemySript = myEnemy.GetComponent<enemy_spawner>();
     }
     // Update is called once per frame
     void Update()
     {
-        healthBar.value = text.enemyHealthValue;
+        healthBar.value = enemySript.enemy_health;
     }
 }
