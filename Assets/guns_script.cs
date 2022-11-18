@@ -7,6 +7,12 @@ public class guns_script : MonoBehaviour
 
     public GameObject shotgun;
     public GameObject pistol;
+    public GameObject shotgun_bullet;
+    public GameObject pistol_bullet;
+    public GameObject shotgun_bullet_location;
+    public GameObject pistol_bullet_location;
+
+    public float bullet_force = 250;
 
     public AudioSource shotgunsound_1;
     public AudioSource shotgunsound_2;
@@ -21,7 +27,6 @@ public class guns_script : MonoBehaviour
     public ParticleSystem shotgun_particle;
     public ParticleSystem pistol_particle;
 
-
     bool start_fire_rate = false;
     float fire_Rate = 0.8f;
     float fire_rate_reset = 0.8f;
@@ -34,8 +39,14 @@ public class guns_script : MonoBehaviour
             fire_Rate = fire_Rate - Time.deltaTime;
             if (fire_Rate <= 0)
             {
-                shotgun_animator.SetInteger("state", 0);
-                pistol_animator.SetInteger("state", 0);
+                if(shotgun.activeInHierarchy == true)
+                {
+                    shotgun_animator.SetInteger("state", 0);
+                }
+                if (pistol.activeInHierarchy == true)
+                {
+                    pistol_animator.SetInteger("state", 0);
+                }              
                 start_fire_rate = false;
                 fire_Rate = fire_rate_reset;
             }
@@ -72,9 +83,10 @@ public class guns_script : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse0) && start_fire_rate == false)
         {
-            fire_rate_reset = 0.7f;
+            shotgun_animator.speed = 3;
+            fire_rate_reset = 0.35f;         
             if (shotgun.activeInHierarchy == true && shotgun_animator.GetInteger("state") != 1)
-            {
+            {         
                 int choose = Random.Range(0, 2);
                 if(choose == 0)
                 {
@@ -84,13 +96,17 @@ public class guns_script : MonoBehaviour
                 {
                     shotgunsound_2.Play();
                 }
+                GameObject bullet = Instantiate(shotgun_bullet, shotgun_bullet_location.transform.position, shotgun_bullet_location.transform.rotation);
+                Rigidbody bullet_rig = bullet.GetComponent<Rigidbody>();
+                bullet_rig.AddForce(shotgun.transform.forward * bullet_force);
                 shotgun_particle.Play();
                 shotgun_animator.SetInteger("state", 1);
                 start_fire_rate = true;
             }
             if (pistol.activeInHierarchy == true && pistol_animator.GetInteger("state") != 1)
             {
-                fire_rate_reset = 0.45f;
+                pistol_animator.speed = 3;
+                fire_rate_reset = 0.17f;
                 int choose = Random.Range(0, 2);
                 if (choose == 0)
                 {
@@ -100,6 +116,9 @@ public class guns_script : MonoBehaviour
                 {
                     pistol_sound_2.Play();
                 }
+                GameObject bullet = Instantiate(pistol_bullet, pistol_bullet_location.transform.position, pistol_bullet_location.transform.rotation);
+                Rigidbody bullet_rig = bullet.GetComponent<Rigidbody>();
+                bullet_rig.AddForce(shotgun.transform.forward * bullet_force);
                 pistol_particle.Play();
                 pistol_animator.SetInteger("state", 1);
                 start_fire_rate = true;
