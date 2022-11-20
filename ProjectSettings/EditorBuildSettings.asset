@@ -14,4 +14,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/MAIN/Scenes/Week2/Concept2.unity
     guid: 8ea81652f8735b44a91075addaa4f3b3
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 953fa759ad6201d4cbef38b501d9502f,
+      type: 2}
