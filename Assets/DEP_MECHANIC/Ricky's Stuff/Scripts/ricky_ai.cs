@@ -9,7 +9,7 @@ public class ricky_ai : MonoBehaviour
     public NavMeshAgent this_agent;
     public GameObject player;
     public Animator this_animator;
-    public Ricky_Game_Script player_script;
+    public player_script playerscript;
     public GameObject slender_noise;
     public GameObject blood_damage_image;
     /* public Image blood_image_ui;
@@ -29,11 +29,11 @@ public class ricky_ai : MonoBehaviour
     {
         if (this_agent.hasPath == true)
         {
-            slender_noise.SetActive(false);
-            this_agent.SetDestination(player.transform.position);
-            this_animator.SetInteger("state", 1);
+           
         }
-       
+        slender_noise.SetActive(false);
+        this_agent.SetDestination(player.transform.position);
+        this_animator.SetInteger("state", 1);
     }
 
     public void idle()
@@ -50,9 +50,9 @@ public class ricky_ai : MonoBehaviour
     {
         if(start_health_timer == false)
         {
-           // blood_image_ui.color = blood_image_color_reset;
+            // blood_image_ui.color = blood_image_color_reset;
             //blood_damage_image.SetActive(true);
-            player_script.health = player_script.health - 20;
+            playerscript.health = playerscript.health - 20;
             start_health_timer = true;
         }
         slender_noise.SetActive(true);
