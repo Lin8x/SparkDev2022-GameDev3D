@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 262.3369, g: 325.0498, b: 430.21924, a: 1}
+  m_IndirectSpecularColor: {r: 262.1853, g: 324.85815, b: 429.9668, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8615,7 +8615,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1924995708}
   - component: {fileID: 1924995709}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: HealthRay
   m_TagString: UIHealthBarPlayer
   m_Icon: {fileID: 0}
@@ -9811,7 +9811,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh68760
+  m_Name: pb_Mesh36688
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
