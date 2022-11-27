@@ -1,0 +1,220 @@
+fileFormatVersion: 2
+guid: fd343c47f01938e42ba22f61f8be045f
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: RigHeadGizmo
+    100002: RigLArm1Gizmo
+    100004: RigLArm2Gizmo
+    100006: RigLArmPalmGizmo
+    100008: RigMouthGizmo
+    100010: RigPelvisGizmo
+    100012: RigRArm1Gizmo
+    100014: RigRArm2Gizmo
+    100016: RigRArmPalmGizmo
+    100018: RigRibcageGizmo
+    100020: Toon Rock Golem
+    100022: //RootNode
+    100024: w
+    100026: wHead
+    100028: wLArm1
+    100030: wLArm2
+    100032: wLArmPalm
+    100034: wMouth
+    100036: wNeck
+    100038: wPelvis
+    100040: wRArm1
+    100042: wRArm2
+    100044: wRArmPalm
+    100046: wRibcage
+    100048: wSpine1
+    100050: wSpine2
+    100052: wSpine3
+    100054: wSpine4
+    100056: wTail1
+    100058: wTail2
+    100060: wTail3
+    100062: Rig
+    100064: RigHead
+    100066: RigLArm1
+    100068: RigLArm2
+    100070: RigLArmPalm
+    100072: RigMouth
+    100074: RigNeck
+    100076: RigPelvis
+    100078: RigRArm1
+    100080: RigRArm2
+    100082: RigRArmPalm
+    100084: RigRibcage
+    100086: RigSpine1
+    100088: RigSpine2
+    100090: RigSpine3
+    100092: RigSpine4
+    100094: RigTail1
+    100096: RigTail2
+    100098: RigTail3
+    400000: RigHeadGizmo
+    400002: RigLArm1Gizmo
+    400004: RigLArm2Gizmo
+    400006: RigLArmPalmGizmo
+    400008: RigMouthGizmo
+    400010: RigPelvisGizmo
+    400012: RigRArm1Gizmo
+    400014: RigRArm2Gizmo
+    400016: RigRArmPalmGizmo
+    400018: RigRibcageGizmo
+    400020: Toon Rock Golem
+    400022: //RootNode
+    400024: w
+    400026: wHead
+    400028: wLArm1
+    400030: wLArm2
+    400032: wLArmPalm
+    400034: wMouth
+    400036: wNeck
+    400038: wPelvis
+    400040: wRArm1
+    400042: wRArm2
+    400044: wRArmPalm
+    400046: wRibcage
+    400048: wSpine1
+    400050: wSpine2
+    400052: wSpine3
+    400054: wSpine4
+    400056: wTail1
+    400058: wTail2
+    400060: wTail3
+    400062: Rig
+    400064: RigHead
+    400066: RigLArm1
+    400068: RigLArm2
+    400070: RigLArmPalm
+    400072: RigMouth
+    400074: RigNeck
+    400076: RigPelvis
+    400078: RigRArm1
+    400080: RigRArm2
+    400082: RigRArmPalm
+    400084: RigRibcage
+    400086: RigSpine1
+    400088: RigSpine2
+    400090: RigSpine3
+    400092: RigSpine4
+    400094: RigTail1
+    400096: RigTail2
+    400098: RigTail3
+    2100000: 01 - Default
+    4300000: Toon Rock Golem
+    7400000: Fly Left In Place
+    9500000: //RootNode
+    13700000: Toon Rock Golem
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Fly Left In Place
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 35
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 1
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 3a5e32bef04849f44b5fe880a72a97ec,
+    type: 3}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

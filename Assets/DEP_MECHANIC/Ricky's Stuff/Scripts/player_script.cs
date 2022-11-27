@@ -17,11 +17,25 @@ public class player_script : MonoBehaviour
     public AudioSource health_sound_pickup;
     public int question_mark_pickup = 0;
     public Text question_text;
+    public int total_kills = 0;
+    public Text kills_score;
+    public GameObject score_kill_ob;
+    public Text score_kill_ob_text;
+    public Text high_score_text;
+    public Text death_kills_count;
+    public Text death_highest_score_text;
+
+    int highest_Score = 0;
     float walk_timer = 0.45f;
     bool start_walk_timer = false;
     float walk_timer_reset = 0.45f;
     public float stamina = 10;
 
+    public void kill_enemy()
+    {
+        score_kill_ob.SetActive(true);
+        total_kills = total_kills + 1;
+    }
 
     public void pickup_drops(int drop)
     {
@@ -37,8 +51,23 @@ public class player_script : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        highest_Score = PlayerPrefs.GetInt("high score");
+    }
+
     void Update()
     {
+        if (highest_Score < total_kills)
+        {          
+            highest_Score = total_kills;
+            PlayerPrefs.SetInt("high score", highest_Score);
+        }
+        death_kills_count.text ="Total Kills:" + total_kills.ToString();
+        death_highest_score_text.text ="Best Score:" + highest_Score.ToString();
+        high_score_text.text = highest_Score.ToString();
+        score_kill_ob_text.text = total_kills.ToString();
+        kills_score.text = total_kills.ToString();
         question_text.text = question_mark_pickup.ToString();
 
         if (health > 100)

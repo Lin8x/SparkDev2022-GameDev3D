@@ -22,6 +22,7 @@ public class bullet_collider : MonoBehaviour
             hit_enemies_sound.Play();
             enemy_spawner enemy_script = other.GetComponentInParent<enemy_spawner>();
             enemy_script.take_damage(bullet_damage);
+            enemy_script.golem_animator.SetTrigger("Take Damage");
             //enemy_script.enemy_health = enemy_script.enemy_health - 30;
             Destroy(this.gameObject);
         }

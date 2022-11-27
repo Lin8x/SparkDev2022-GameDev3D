@@ -71,7 +71,7 @@ public class Start_game : MonoBehaviour
 
     private void Update()
     {
-
+        
         if (script_player.health <= 0 && player.activeInHierarchy == true)
         {
             Cursor.visible = true;

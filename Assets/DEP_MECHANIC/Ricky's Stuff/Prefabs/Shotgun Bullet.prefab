@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b48458d165ec8014499dfed872c63771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet_damage: 100
+  bullet_damage: 63
   explosion: {fileID: 8251426606300075054, guid: ae2d0e974a45a4245b5e481693a940be,
     type: 3}
   hit_enemies_sound: {fileID: -6909723461226668123}
