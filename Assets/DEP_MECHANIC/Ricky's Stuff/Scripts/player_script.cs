@@ -7,19 +7,64 @@ public class player_script : MonoBehaviour
 {
     public float health = 100;
     public Text health_text;
+    public Text stamina_text;
     public Rigidbody player_rig;
     public AudioSource foot_steps;
     public UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController player_move_script;
-
+    public GameObject health_alert;
+    public GameObject stamina_alert;
+    public AudioSource question_mark_sound_pickup;
+    public AudioSource health_sound_pickup;
+    public int question_mark_pickup = 0;
+    public Text question_text;
     float walk_timer = 0.45f;
     bool start_walk_timer = false;
     float walk_timer_reset = 0.45f;
     public float stamina = 10;
 
+
+    public void pickup_drops(int drop)
+    {
+        if(drop == 1)
+        {
+            question_mark_pickup = question_mark_pickup + 1;
+            question_mark_sound_pickup.Play();
+        }
+        if (drop == 2)
+        {
+            health = health + Random.Range(10, 50);
+            health_sound_pickup.Play();
+        }
+    }
+
     void Update()
     {
+        question_text.text = question_mark_pickup.ToString();
 
-        health_text.text = "Health: " + Mathf.RoundToInt(health).ToString();
+        if (health > 100)
+        {
+            health = 100;
+        }
+
+        if(health < 15)
+        {
+            health_alert.SetActive(true);
+        }
+        else
+        {
+            health_alert.SetActive(false);
+        }
+        if(stamina < 2)
+        {
+            stamina_alert.SetActive(true);
+        }
+        else
+        {
+            stamina_alert.SetActive(false);
+        }
+
+        health_text.text = Mathf.RoundToInt(health).ToString();
+        stamina_text.text = Mathf.RoundToInt(stamina).ToString();
         if (health <= 0)
         {
 

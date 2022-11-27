@@ -20,11 +20,11 @@ public class enemy_spawner : MonoBehaviour
     public AudioSource growl_sound;
     public GameObject action_music;
     public disable_item action_music_disable_component;
-
+    public GameObject drops;
     bool start_reset_timer = false;
     float reset_timer = 5f;
     public bool following_playuer = false;
-
+    
     public AudioSource hit_sound;
 
     public void take_damage(float damage)
@@ -52,6 +52,7 @@ public class enemy_spawner : MonoBehaviour
         //RESPAWN ENEMY
         if(enemy_health <= 0 && start_reset_timer == false)
         {
+            Instantiate(drops, enemy_object.transform.position, enemy_object.transform.rotation);
             enemy_object.SetActive(false);
             enemy_object.transform.position = enemy_reset_position.transform.position;
             start_reset_timer = true;
@@ -61,7 +62,7 @@ public class enemy_spawner : MonoBehaviour
         {
             //ATTACK PLAYER
             blood_ui.SetActive(true);
-            slender_glitch.SetActive(true);
+           // slender_glitch.SetActive(true);
             slender_animator.SetInteger("state", 2);
             playerscript.health = playerscript.health - Time.deltaTime * damage_amount;
             //enemy_agent.SetDestination(this.transform.position);                       

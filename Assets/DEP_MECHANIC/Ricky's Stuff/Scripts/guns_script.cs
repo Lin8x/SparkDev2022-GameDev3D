@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class guns_script : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class guns_script : MonoBehaviour
     public GameObject pistol_bullet_location;
 
     public float bullet_force = 250;
+    public int shotgun_bullets = 8;
+    public int pistol_bullets = 15;
+    public int all_bullets = 500;
 
     public AudioSource shotgunsound_1;
     public AudioSource shotgunsound_2;
@@ -20,6 +24,7 @@ public class guns_script : MonoBehaviour
     public AudioSource pistol_sound_2;
     public AudioSource reload_sound;
     public AudioSource switch_gun_sound;
+    public AudioSource dry_fire;
 
     public Animator shotgun_animator;
     public Animator pistol_animator;
@@ -27,12 +32,45 @@ public class guns_script : MonoBehaviour
     public ParticleSystem shotgun_particle;
     public ParticleSystem pistol_particle;
 
+    public Text current_bullet_text;
+    public Text all_bullet_text;
+    public GameObject bullets_alert;
+    public AudioSource ammo_pickup_sound;
+
     bool start_fire_rate = false;
     float fire_Rate = 0.8f;
     float fire_rate_reset = 0.8f;
 
+    public void pickup_ammo()
+    {
+        all_bullets = all_bullets + Random.Range(20, 80);
+        ammo_pickup_sound.Play();
+    }
+
+
     void Update()
     {
+        if(shotgun_bullets <= 1 || pistol_bullets <= 1)
+        {
+            bullets_alert.SetActive(true);
+        }
+        else
+        {
+            bullets_alert.SetActive(false);
+        }
+
+
+        if (shotgun.activeInHierarchy == true)
+        {
+            current_bullet_text.text = shotgun_bullets.ToString();
+            all_bullet_text.text = all_bullets.ToString();
+
+        }
+        else if(pistol.activeInHierarchy == true)
+        {
+            current_bullet_text.text = pistol_bullets.ToString();
+            all_bullet_text.text = all_bullets.ToString();
+        }
 
         if(start_fire_rate == true)
         {
@@ -85,8 +123,9 @@ public class guns_script : MonoBehaviour
         {
             shotgun_animator.speed = 2.2f;
             fire_rate_reset = 0.35f;         
-            if (shotgun.activeInHierarchy == true && shotgun_animator.GetInteger("state") != 1)
-            {         
+            if (shotgun.activeInHierarchy == true && shotgun_animator.GetInteger("state") != 1 && shotgun_bullets >= 1)
+            {
+                shotgun_bullets = shotgun_bullets - 1;
                 int choose = Random.Range(0, 2);
                 if(choose == 0)
                 {
@@ -103,8 +142,9 @@ public class guns_script : MonoBehaviour
                 shotgun_animator.SetInteger("state", 1);
                 start_fire_rate = true;
             }
-            if (pistol.activeInHierarchy == true && pistol_animator.GetInteger("state") != 1)
+            if (pistol.activeInHierarchy == true && pistol_animator.GetInteger("state") != 1 && pistol_bullets >=1)
             {
+                pistol_bullets = pistol_bullets - 1;
                 pistol_animator.speed = 3.5f;
                 fire_rate_reset = 0.17f;
                 int choose = Random.Range(0, 2);
@@ -123,6 +163,20 @@ public class guns_script : MonoBehaviour
                 pistol_animator.SetInteger("state", 1);
                 start_fire_rate = true;
             }
+
+            if(pistol_bullets <=0 || shotgun_bullets <= 0)
+            {
+                if (pistol.activeInHierarchy == true)
+                {
+                    dry_fire.Play();
+                }
+                if (shotgun.activeInHierarchy == true)
+                {
+                    dry_fire.Play();
+                }
+
+            }
+
         }
 
 
@@ -130,12 +184,32 @@ public class guns_script : MonoBehaviour
         {
             if (shotgun.activeInHierarchy == true)
             {
+                if(all_bullets >= shotgun_bullets)
+                {
+                    all_bullets = all_bullets - (8 - shotgun_bullets);
+                    shotgun_bullets = 8;
+                }
+                else if (all_bullets < shotgun_bullets)
+                {
+                    shotgun_bullets = shotgun_bullets + all_bullets;
+                    all_bullets = 0;
+                }
                 shotgun_animator.speed = 1.5f;
                 shotgun_animator.SetInteger("state", 2);
             }
 
             if (pistol.activeInHierarchy == true)
             {
+                if (all_bullets >= pistol_bullets)
+                {
+                    all_bullets = all_bullets - (15 - pistol_bullets);
+                    pistol_bullets = 15;
+                }
+                else if (all_bullets < pistol_bullets)
+                {
+                    pistol_bullets = pistol_bullets + all_bullets;
+                    all_bullets = 0;
+                }
                 pistol_animator.speed = 1.5f;
                 pistol_animator.SetInteger("state", 2);
             }
