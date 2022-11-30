@@ -15,6 +15,7 @@ public class NEW_Start_game : MonoBehaviour
     public GameObject storm_go;
     public GameObject death_menu;
     public player_script script_player;
+    public string sceneName = "Main";
 
     public void start_game()
     {
@@ -29,7 +30,7 @@ public class NEW_Start_game : MonoBehaviour
 
     public void restart_game()
     {
-        SceneManager.LoadScene("NEW Ricky Scene");
+        SceneManager.LoadScene(sceneName);
     }
 
     public void options_button()
@@ -72,7 +73,7 @@ public class NEW_Start_game : MonoBehaviour
     private void Update()
     {
         
-        if (script_player.health <= 0 && player.activeInHierarchy == true)
+        if (script_player.health <= 0 && player.activeInHierarchy == true && death_menu.activeInHierarchy == false)
         {
             Cursor.visible = true;
             click_sound.Play();
@@ -82,12 +83,12 @@ public class NEW_Start_game : MonoBehaviour
             player_ui.SetActive(false);
             menu_ui.SetActive(true);
             menu_GO.SetActive(true);
-            //death_menu.SetActive(true); for some reason, works as intended even with this disabled
+            //death_menu.SetActive(true); //for some reason, works as intended even with this disabled
 
         }
         if(Input.GetKeyDown("r") && death_menu.activeInHierarchy == true)
         {
-            SceneManager.LoadScene("NEW Ricky Scene");
+            SceneManager.LoadScene(sceneName);
         }
 
         if (Input.GetKeyDown(KeyCode.Escape) && player.activeInHierarchy == true && death_menu.activeInHierarchy == false)
