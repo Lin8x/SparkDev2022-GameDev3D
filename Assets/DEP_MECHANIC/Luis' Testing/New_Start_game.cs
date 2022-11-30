@@ -15,7 +15,6 @@ public class NEW_Start_game : MonoBehaviour
     public GameObject storm_go;
     public GameObject death_menu;
     public player_script script_player;
-    public string sceneName = "Main";
 
     public void start_game()
     {
@@ -30,7 +29,7 @@ public class NEW_Start_game : MonoBehaviour
 
     public void restart_game()
     {
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(0);
     }
 
     public void options_button()
@@ -88,7 +87,7 @@ public class NEW_Start_game : MonoBehaviour
         }
         if(Input.GetKeyDown("r") && death_menu.activeInHierarchy == true)
         {
-            SceneManager.LoadScene(sceneName);
+            SceneManager.LoadScene(0);
         }
 
         if (Input.GetKeyDown(KeyCode.Escape) && player.activeInHierarchy == true && death_menu.activeInHierarchy == false)

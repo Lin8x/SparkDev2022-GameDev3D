@@ -29,7 +29,7 @@ public class New_Start_game : MonoBehaviour
 
     public void restart_game()
     {
-        SceneManager.LoadScene("NEW Ricky Scene");
+        SceneManager.LoadScene(0);
     }
 
     public void options_button()
@@ -86,7 +86,7 @@ public class New_Start_game : MonoBehaviour
         }
         if(Input.GetKeyDown("r") && death_menu.activeInHierarchy == true)
         {
-            SceneManager.LoadScene("NEW Ricky Scene");
+            SceneManager.LoadScene(0);
         }
 
         if (Input.GetKeyDown(KeyCode.Escape) && player.activeInHierarchy == true && death_menu.activeInHierarchy == false)
