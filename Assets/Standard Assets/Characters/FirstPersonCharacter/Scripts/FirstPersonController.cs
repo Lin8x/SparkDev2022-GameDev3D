@@ -4,44 +4,43 @@ using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
 using Random = UnityEngine.Random;
 
-#pragma warning disable 618, 649
 namespace UnityStandardAssets.Characters.FirstPerson
-{
+{ 
     [RequireComponent(typeof (CharacterController))]
     [RequireComponent(typeof (AudioSource))]
     public class FirstPersonController : MonoBehaviour
     {
-        [SerializeField] private bool m_IsWalking;
-        [SerializeField] private float m_WalkSpeed;
-        [SerializeField] private float m_RunSpeed;
-        [SerializeField] [Range(0f, 1f)] private float m_RunstepLenghten;
-        [SerializeField] private float m_JumpSpeed;
-        [SerializeField] private float m_StickToGroundForce;
-        [SerializeField] private float m_GravityMultiplier;
-        [SerializeField] private MouseLook m_MouseLook;
-        [SerializeField] private bool m_UseFovKick;
+        [SerializeField] private bool m_IsWalking = true;
+        [SerializeField] private float m_WalkSpeed = 0f;
+        [SerializeField] private float m_RunSpeed = 0f;
+        [SerializeField] [Range(0f, 1f)] private float m_RunstepLenghten = 0f;
+        [SerializeField] private float m_JumpSpeed = 0f;
+        [SerializeField] private float m_StickToGroundForce = 0f;
+        [SerializeField] private float m_GravityMultiplier = 0f;
+        [SerializeField] private MouseLook m_MouseLook = new MouseLook();
+        [SerializeField] private bool m_UseFovKick = true;
         [SerializeField] private FOVKick m_FovKick = new FOVKick();
-        [SerializeField] private bool m_UseHeadBob;
+        [SerializeField] private bool m_UseHeadBob = true;
         [SerializeField] private CurveControlledBob m_HeadBob = new CurveControlledBob();
         [SerializeField] private LerpControlledBob m_JumpBob = new LerpControlledBob();
-        [SerializeField] private float m_StepInterval;
-        [SerializeField] private AudioClip[] m_FootstepSounds;    // an array of footstep sounds that will be randomly selected from.
-        [SerializeField] private AudioClip m_JumpSound;           // the sound played when character leaves the ground.
-        [SerializeField] private AudioClip m_LandSound;           // the sound played when character touches back on ground.
+        [SerializeField] private float m_StepInterval = 0f;
+        [SerializeField] private AudioClip[] m_FootstepSounds = new AudioClip[0];    // an array of footstep sounds that will be randomly selected from.
+        [SerializeField] private AudioClip m_JumpSound = null;           // the sound played when character leaves the ground.
+        [SerializeField] private AudioClip m_LandSound = null;           // the sound played when character touches back on ground.
 
         private Camera m_Camera;
-        private bool m_Jump;
+        private bool m_Jump = true;
         private float m_YRotation;
-        private Vector2 m_Input;
+        private Vector2 m_Input = new Vector2();
         private Vector3 m_MoveDir = Vector3.zero;
-        private CharacterController m_CharacterController;
-        private CollisionFlags m_CollisionFlags;
-        private bool m_PreviouslyGrounded;
-        private Vector3 m_OriginalCameraPosition;
-        private float m_StepCycle;
-        private float m_NextStep;
-        private bool m_Jumping;
-        private AudioSource m_AudioSource;
+        private CharacterController m_CharacterController = new CharacterController();
+        private CollisionFlags m_CollisionFlags = CollisionFlags.None;
+        private bool m_PreviouslyGrounded = false;
+        private Vector3 m_OriginalCameraPosition = Vector3.zero;
+        private float m_StepCycle = 0f;
+        private float m_NextStep = 0f;
+        private bool m_Jumping = false;
+        private AudioSource m_AudioSource = new AudioSource();
 
         // Use this for initialization
         private void Start()

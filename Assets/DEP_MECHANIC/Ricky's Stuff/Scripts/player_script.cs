@@ -7,7 +7,9 @@ public class player_script : MonoBehaviour
 {
     public float health = 100;
     public Text health_text;
+    public Slider healthBar;
     public Text stamina_text;
+    public Slider staminaBar;
     public Rigidbody player_rig;
     public AudioSource foot_steps;
     public UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController player_move_script;
@@ -63,9 +65,9 @@ public class player_script : MonoBehaviour
             highest_Score = total_kills;
             PlayerPrefs.SetInt("high score", highest_Score);
         }
-        death_kills_count.text ="Total Kills:" + total_kills.ToString();
-        death_highest_score_text.text ="Best Score:" + highest_Score.ToString();
-        high_score_text.text = highest_Score.ToString();
+        death_kills_count.text = "YOUR SCORE - " + total_kills.ToString();
+        death_highest_score_text.text = "BEST SCORE - " + highest_Score.ToString();
+        high_score_text.text = "BEST SCORE - " + highest_Score.ToString();
         score_kill_ob_text.text = total_kills.ToString();
         kills_score.text = total_kills.ToString();
         question_text.text = question_mark_pickup.ToString();
@@ -93,7 +95,9 @@ public class player_script : MonoBehaviour
         }
 
         health_text.text = Mathf.RoundToInt(health).ToString();
+        healthBar.value = Mathf.RoundToInt(health);
         stamina_text.text = Mathf.RoundToInt(stamina).ToString();
+        staminaBar.value = Mathf.RoundToInt(stamina);
         if (health <= 0)
         {
 
