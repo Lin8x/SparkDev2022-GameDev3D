@@ -16,17 +16,37 @@ public class New_Start_game : MonoBehaviour
     public GameObject death_menu;
     public GameObject exitBox;
     public player_script script_player;
+    public bool HUDFlag;
 
     public void start_game()
     {
+
+        if (PlayerPrefs.GetString("HUD" + "Switch") == "true")
+            HUDFlag = true;
+        else
+            HUDFlag = false;
+
         click_sound.Play();
         storm_go.SetActive(true);
         player.SetActive(true);
         sounds.SetActive(true);
-        player_ui.SetActive(true);
+        if (HUDFlag)
+            player_ui.SetActive(true);
         menu_ui.SetActive(false);
         menu_GO.SetActive(false);
+        
     }
+
+    public void disableHUD()
+    {
+        HUDFlag = false;
+    }
+
+    public void activateHUD()
+    {
+        HUDFlag = true;
+    }
+
 
     public void restart_game()
     {
@@ -113,7 +133,8 @@ public class New_Start_game : MonoBehaviour
             click_sound.Play();
             player.SetActive(true);
             sounds.SetActive(true);
-            player_ui.SetActive(true);
+            if(HUDFlag)
+                player_ui.SetActive(true);
             menu_ui.SetActive(false);
             menu_GO.SetActive(false);
         }
