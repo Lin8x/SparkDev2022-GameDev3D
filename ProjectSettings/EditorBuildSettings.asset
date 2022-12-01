@@ -5,13 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/PREMADE/Scenes/game.unity
-    guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/MAIN/Scenes/Week2/MainMenu.unity
-    guid: 7018f37bf8cb7c54da54a705014cf04d
-  - enabled: 1
-    path: Assets/MAIN/Scenes/Week2/Concept2.unity
-    guid: 8ea81652f8735b44a91075addaa4f3b3
-  m_configObjects: {}
+    path: Assets/DEP_MECHANIC/Luis' Testing/Main.unity
+    guid: b11634207dd7c0b4c82a4d8fb929c620
+  m_configObjects:
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 953fa759ad6201d4cbef38b501d9502f,
+      type: 2}
