@@ -19,6 +19,10 @@ public class PlayButtonHandler : MonoBehaviour
     {
         titleText = gameObject.transform.Find("Content/Title").GetComponent<TextMeshProUGUI>();
         descriptionText = gameObject.transform.Find("Content/Description").GetComponent<TextMeshProUGUI>();
+
+        titleText.text = "RESUME";
+        descriptionText.text = "Survive and obtain the power of the Sun";
+
     }
 
 }
