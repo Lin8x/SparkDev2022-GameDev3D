@@ -174,8 +174,8 @@ public class guns_script : MonoBehaviour
             if (pistol.activeInHierarchy == true && pistol_animator.GetInteger("state") != 1 && pistol_bullets >=1)
             {
                 pistol_bullets = pistol_bullets - 1;
-                pistol_animator.speed = 3.5f;
-                fire_rate_reset = 0.17f;
+                pistol_animator.speed = 3.0f;
+                fire_rate_reset = 0.35f;
                 int choose = Random.Range(0, 2);
                 if (choose == 0)
                 {
@@ -223,7 +223,7 @@ public class guns_script : MonoBehaviour
                     shotgun_bullets = shotgun_bullets + all_bullets;
                     all_bullets = 0;
                 }
-                shotgun_animator.speed = 1.5f;
+                shotgun_animator.speed = 1.7f;
                 shotgun_animator.SetInteger("state", 2);
             }
 
@@ -239,7 +239,7 @@ public class guns_script : MonoBehaviour
                     pistol_bullets = pistol_bullets + all_bullets;
                     all_bullets = 0;
                 }
-                pistol_animator.speed = 1.5f;
+                pistol_animator.speed = 1.7f;
                 pistol_animator.SetInteger("state", 2);
             }
             pistol_reload.Play();

@@ -13,13 +13,20 @@ public class collect_totem : MonoBehaviour
     public TextMesh question_text;
     public AudioSource deposit_sound;
     public AudioSource error;
-
-    int collectibles_amount = 0;
+    public GameObject action_music;
+    public GameObject win_round;
+    public Text round_text;
+    public int collectibles_amount = 0;
 
     private void Update()
     {
-        if(collectibles_amount >= 5)
+       
+        if (collectibles_amount >= 5)
         {
+            sript_player.round = sript_player.round + 1;
+            round_text.text ="Round - " + sript_player.round.ToString();
+            win_round.SetActive(true);
+            action_music.SetActive(false);
             script_storm.start_stom_rush = true;
             collectibles_amount = 0;
         }

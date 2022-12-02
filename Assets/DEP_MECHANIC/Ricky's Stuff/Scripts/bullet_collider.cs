@@ -10,6 +10,33 @@ public class bullet_collider : MonoBehaviour
     bool already_instinciated = false;
     public AudioSource hit_enemies_sound;
 
+    public GameObject particle_1;
+    public GameObject particle_2;
+    public GameObject particle_3;
+
+    private void Start()
+    {
+        int ran_num = Random.Range(0, 3);
+        if(ran_num == 0)
+        {
+            particle_1.SetActive(true);
+            particle_2.SetActive(false);
+            particle_3.SetActive(false);
+        }
+        if (ran_num == 1)
+        {
+            particle_1.SetActive(false);
+            particle_2.SetActive(true);
+            particle_3.SetActive(false);
+        }
+        if (ran_num == 2)
+        {
+            particle_1.SetActive(false);
+            particle_2.SetActive(false);
+            particle_3.SetActive(true);
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(already_instinciated == false && other.gameObject.layer == 7 || other.gameObject.layer == 9)

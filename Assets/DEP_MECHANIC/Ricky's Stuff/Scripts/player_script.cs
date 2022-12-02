@@ -28,6 +28,7 @@ public class player_script : MonoBehaviour
     public Text death_highest_score_text;
     public AudioSource jump_sound;
 
+    public int round = 0;
     int highest_Score = 0;
     float walk_timer = 0.45f;
     bool start_walk_timer = false;
@@ -73,9 +74,13 @@ public class player_script : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            fps_cam.movementSettings.RunMultiplier = 1;
             jump_sound.Play();
         }
-
+        if(fps_cam.Grounded == false)
+        {
+            fps_cam.movementSettings.RunMultiplier = 1;
+        }
 
         if (highest_Score < total_kills)
         {          

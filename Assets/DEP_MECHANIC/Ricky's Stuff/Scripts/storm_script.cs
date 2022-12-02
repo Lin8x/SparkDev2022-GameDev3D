@@ -21,6 +21,7 @@ public class storm_script : MonoBehaviour
     public GameObject stomg_pos_1;
     public GameObject stomg_pos_2;
     public GameObject stomg_pos_3;
+    public GameObject totems;
 
     public bool start_stom_rush = false;
     bool check_player = false;
@@ -57,13 +58,14 @@ public class storm_script : MonoBehaviour
 
         if(start_stom_rush == false)
         {
+            totems.SetActive(true);
             timer_text_go.SetActive(false);
             change_storm_pos = false;
         }
         if (start_stom_rush == true)
         {
             timer_text_go.SetActive(true);
-
+            totems.SetActive(false);
             int r_int = Random.Range(0, 3);
             if(r_int == 0 && change_storm_pos == false)
             {
