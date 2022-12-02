@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8ad0c5925c6e239478d791e2456f9f4a
+guid: ee1825e24d0d2044fa375a46b4770f7e
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,22 +7,22 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Gun_final.001_EmissionMat
+      name: Gun_final.002_EmissionMat
     second: {fileID: 2100000, guid: 6b59493ab8196f548b81f594fed7ac45, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Gun_final.001_Primary_ColorMat
+      name: Gun_final.002_Primary_ColorMat
     second: {fileID: 2100000, guid: 08148421520c0e541bb11e82467c7514, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Gun_final.001_Secondary_ColorMat
+      name: Gun_final.002_Secondary_ColorMat
     second: {fileID: 2100000, guid: 095c8e28e86e36e44b42534b954d4666, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Gun_final.001_Tertiary_ColorMat
+      name: Gun_final.002_Tertiary_ColorMat
     second: {fileID: 2100000, guid: 6fd099d339b4ae34692c8258e4f87531, type: 2}
   materials:
     materialImportMode: 2
