@@ -11767,6 +11767,7 @@ MonoBehaviour:
   stomg_pos_1: {fileID: 0}
   stomg_pos_2: {fileID: 0}
   stomg_pos_3: {fileID: 0}
+  totems: {fileID: 0}
   start_stom_rush: 1
 --- !u!136 &379859360
 CapsuleCollider:
@@ -24966,6 +24967,10 @@ MonoBehaviour:
   question_text: {fileID: 1889886815}
   deposit_sound: {fileID: 776039321}
   error: {fileID: 776039320}
+  action_music: {fileID: 0}
+  win_round: {fileID: 0}
+  round_text: {fileID: 0}
+  collectibles_amount: 0
 --- !u!136 &776039323
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -28140,6 +28145,7 @@ MonoBehaviour:
   stomg_pos_1: {fileID: 0}
   stomg_pos_2: {fileID: 0}
   stomg_pos_3: {fileID: 0}
+  totems: {fileID: 0}
   start_stom_rush: 1
 --- !u!136 &873760664
 CapsuleCollider:
@@ -28357,6 +28363,7 @@ MonoBehaviour:
   stomg_pos_1: {fileID: 0}
   stomg_pos_2: {fileID: 0}
   stomg_pos_3: {fileID: 0}
+  totems: {fileID: 0}
   start_stom_rush: 1
 --- !u!136 &874583967
 CapsuleCollider:
@@ -36416,7 +36423,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh81966
+  m_Name: pb_Mesh128540
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -37190,6 +37197,7 @@ MonoBehaviour:
   death_kills_count: {fileID: 416321127}
   death_highest_score_text: {fileID: 1431575915}
   jump_sound: {fileID: 1252642540}
+  round: 0
   stamina: 10
   fps_cam: {fileID: 1252642533}
 --- !u!114 &1252642533 stripped
@@ -48091,6 +48099,7 @@ MonoBehaviour:
   stomg_pos_1: {fileID: 379859358}
   stomg_pos_2: {fileID: 874583965}
   stomg_pos_3: {fileID: 873760662}
+  totems: {fileID: 0}
   start_stom_rush: 1
 --- !u!136 &1719662550
 CapsuleCollider:
@@ -51611,8 +51620,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1892292178}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.09819351, y: 0.8289138, z: -0.15394047, w: 0.52873653}
+  m_LocalPosition: {x: 158.145, y: 231.425, z: 1175.317}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -51620,7 +51629,7 @@ Transform:
   - {fileID: 856296348}
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 21.041, y: 114.935, z: 0}
 --- !u!4 &1901836524 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1010010733671478586, guid: c0ec2cd63f93487d92d6623d393c83ba,
@@ -52357,6 +52366,10 @@ MonoBehaviour:
   question_text: {fileID: 382475285}
   deposit_sound: {fileID: 1945619624}
   error: {fileID: 1945619623}
+  action_music: {fileID: 0}
+  win_round: {fileID: 0}
+  round_text: {fileID: 0}
+  collectibles_amount: 0
 --- !u!136 &1945619626
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -59694,7 +59707,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1932297101677114317}
   m_LocalRotation: {x: -0, y: -0.051366385, z: -0, w: 0.99867994}
-  m_LocalPosition: {x: 489.947, y: 0.9729996, z: 440.44083}
+  m_LocalPosition: {x: 489.822, y: 0.9729996, z: 441.649}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -59745,6 +59758,10 @@ MonoBehaviour:
   question_text: {fileID: 1248521043}
   deposit_sound: {fileID: 1932297101677114322}
   error: {fileID: 1932297101677114323}
+  action_music: {fileID: 0}
+  win_round: {fileID: 0}
+  round_text: {fileID: 0}
+  collectibles_amount: 0
 --- !u!136 &1932297101677114321
 CapsuleCollider:
   m_ObjectHideFlags: 0
