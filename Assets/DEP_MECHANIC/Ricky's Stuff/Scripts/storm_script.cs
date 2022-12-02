@@ -17,9 +17,15 @@ public class storm_script : MonoBehaviour
     public GameObject coughing_sound;
     public GameObject enemies;
 
+    public GameObject stomg_go;
+    public GameObject stomg_pos_1;
+    public GameObject stomg_pos_2;
+    public GameObject stomg_pos_3;
+
     public bool start_stom_rush = false;
     bool check_player = false;
     float timer_rush = 15;
+    bool change_storm_pos = false;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -52,10 +58,28 @@ public class storm_script : MonoBehaviour
         if(start_stom_rush == false)
         {
             timer_text_go.SetActive(false);
+            change_storm_pos = false;
         }
         if (start_stom_rush == true)
         {
             timer_text_go.SetActive(true);
+
+            int r_int = Random.Range(0, 3);
+            if(r_int == 0 && change_storm_pos == false)
+            {
+                stomg_go.transform.position = stomg_pos_1.transform.position;
+                change_storm_pos = true;
+            }
+            if (r_int == 1 && change_storm_pos == false)
+            {
+                stomg_go.transform.position = stomg_pos_2.transform.position;
+                change_storm_pos = true;
+            }
+            if (r_int == 2 && change_storm_pos == false)
+            {
+                stomg_go.transform.position = stomg_pos_3.transform.position;
+                change_storm_pos = true;
+            }         
         }
 
 
@@ -79,7 +103,7 @@ public class storm_script : MonoBehaviour
             storm_particles.SetActive(true);
             storm_ui.SetActive(true);
         }
-        if(player_is_inside == true)
+        if(player_is_inside == true || start_stom_rush == true)
         {
             coughing_sound.SetActive(false);
             storm_particles.SetActive(false);
