@@ -5,12 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/MAIN/Ricky's NEW NEW Scene.unity
+    guid: f77d9fec274927e45ac314ecba1cd066
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 953fa759ad6201d4cbef38b501d9502f,
       type: 2}
