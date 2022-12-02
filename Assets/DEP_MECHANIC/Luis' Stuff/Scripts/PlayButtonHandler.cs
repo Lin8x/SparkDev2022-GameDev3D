@@ -2,26 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Michsky.UI.Shift;
-using TMPro;
 
 public class PlayButtonHandler : MonoBehaviour
 {
 
     [SerializeField]
     private SpotlightButton playButton;
-
     [SerializeField]
-    private TextMeshProUGUI titleText;
+    private GameObject button;
     [SerializeField]
-    private TextMeshProUGUI descriptionText;
+    private string title;
+    [SerializeField]
+    private string description;
 
     public void UpdateToResume()
     {
-        titleText = gameObject.transform.Find("Content/Title").GetComponent<TextMeshProUGUI>();
-        descriptionText = gameObject.transform.Find("Content/Description").GetComponent<TextMeshProUGUI>();
+        playButton.UpdateByButton(title, description);
 
-        titleText.text = "RESUME";
-        descriptionText.text = "Survive and obtain the power of the Sun";
+    }
+
+    public void Hide()
+    {
+        button.SetActive(false);
 
     }
 

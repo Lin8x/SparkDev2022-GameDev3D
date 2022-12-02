@@ -17,6 +17,7 @@ public class New_Start_game : MonoBehaviour
     public GameObject exitBox;
     public player_script script_player;
     public bool HUDFlag;
+    public PlayButtonHandler dieButtonDissapear;
 
     public void start_game()
     {
@@ -105,7 +106,7 @@ public class New_Start_game : MonoBehaviour
             death_menu.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-
+            dieButtonDissapear.Hide();
         }
 
 
@@ -137,6 +138,7 @@ public class New_Start_game : MonoBehaviour
                 player_ui.SetActive(true);
             menu_ui.SetActive(false);
             menu_GO.SetActive(false);
+            dieButtonDissapear.UpdateToResume();
         }
     }
 

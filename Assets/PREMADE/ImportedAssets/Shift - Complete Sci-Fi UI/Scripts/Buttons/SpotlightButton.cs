@@ -41,5 +41,16 @@ namespace Michsky.UI.Shift
                 image2.sprite = secondImage;
             }
         }
+
+        public void UpdateByButton(string title, string description)
+        {
+            titleText = gameObject.transform.Find("Content/Title").GetComponent<TextMeshProUGUI>();
+            descriptionText = gameObject.transform.Find("Content/Description").GetComponent<TextMeshProUGUI>();
+
+            titleText.text = title;
+            descriptionText.text = description;
+
+        }
+
     }
 }
