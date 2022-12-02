@@ -33,7 +33,7 @@ public class player_script : MonoBehaviour
     bool start_walk_timer = false;
     float walk_timer_reset = 0.45f;
     public float stamina = 10;
-
+    public UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController fps_cam;
     public void kill_enemy()
     {
         score_kill_ob.SetActive(true);
@@ -61,6 +61,16 @@ public class player_script : MonoBehaviour
 
     void Update()
     {
+
+        if (stamina <= 0.5f)
+        {
+            fps_cam.movementSettings.RunMultiplier = 1;
+        }
+        else
+        {
+            fps_cam.movementSettings.RunMultiplier = 2;
+        }
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             jump_sound.Play();
