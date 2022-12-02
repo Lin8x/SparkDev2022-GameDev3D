@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class guns_script : MonoBehaviour
 {
 
@@ -50,7 +51,7 @@ public class guns_script : MonoBehaviour
 
     void Update()
     {
-        if(shotgun_bullets <= 1 || pistol_bullets <= 1)
+        if (shotgun_bullets <= 1 || pistol_bullets <= 1)
         {
             bullets_alert.SetActive(true);
         }
@@ -91,7 +92,7 @@ public class guns_script : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown("1"))
+        if (Input.GetKeyDown("1") && shotgun_animator.GetInteger("state")!= 2 && pistol_animator.GetInteger("state") != 2)
         {
             switch_gun_sound.Play();
             if (shotgun.activeInHierarchy == true)
@@ -104,7 +105,7 @@ public class guns_script : MonoBehaviour
                 pistol.SetActive(false);
             }  
         }
-        if (Input.GetKeyDown("2"))
+        if (Input.GetKeyDown("2") && shotgun_animator.GetInteger("state") != 2 && pistol_animator.GetInteger("state") != 2)
         {
             switch_gun_sound.Play();
             if (pistol.activeInHierarchy == true)

@@ -24,9 +24,10 @@ public class enemy_spawner : MonoBehaviour
     public GameObject drops;
     public TextMesh health_text;
     public GameObject health_text_go;
-
+    public storm_script script_storm;
     public Animator golem_animator;
 
+    bool kill_enemies_with_storm = false;
     bool start_reset_timer = false;
     float reset_timer = 5f;
     public bool following_playuer = false;
@@ -42,6 +43,12 @@ public class enemy_spawner : MonoBehaviour
 
     void Update()
     {
+        if(script_storm.start_stom_rush == true)
+        {
+            kill_enemies_with_storm = true;
+            enemy_health = 0;
+            reset_timer = 0.5f;
+        }
         health_text_go.transform.LookAt(player.transform.position);
         health_text.text = enemy_health.ToString();
 
@@ -51,6 +58,7 @@ public class enemy_spawner : MonoBehaviour
             reset_timer = reset_timer - Time.deltaTime;
             if (reset_timer <= 0)
             {
+                kill_enemies_with_storm = false;
                 enemy_health = 100;
                 enemy_object.SetActive(true);
                 start_reset_timer = false;
@@ -59,10 +67,16 @@ public class enemy_spawner : MonoBehaviour
         }
 
         //RESPAWN ENEMY
-        if(enemy_health <= 0 && start_reset_timer == false)
+        if(enemy_health <= 0 && start_reset_timer == false && kill_enemies_with_storm == false)
         {
             playerscript.kill_enemy();
             Instantiate(drops, enemy_object.transform.position, enemy_object.transform.rotation);
+            enemy_object.SetActive(false);
+            enemy_object.transform.position = enemy_reset_position.transform.position;
+            start_reset_timer = true;
+        }
+        else if(enemy_health <= 0 && kill_enemies_with_storm == true)
+        {
             enemy_object.SetActive(false);
             enemy_object.transform.position = enemy_reset_position.transform.position;
             start_reset_timer = true;

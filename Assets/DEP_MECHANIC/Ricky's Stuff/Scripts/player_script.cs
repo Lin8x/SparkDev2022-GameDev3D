@@ -26,6 +26,7 @@ public class player_script : MonoBehaviour
     public Text high_score_text;
     public Text death_kills_count;
     public Text death_highest_score_text;
+    public AudioSource jump_sound;
 
     int highest_Score = 0;
     float walk_timer = 0.45f;
@@ -60,6 +61,12 @@ public class player_script : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            jump_sound.Play();
+        }
+
+
         if (highest_Score < total_kills)
         {          
             highest_Score = total_kills;
