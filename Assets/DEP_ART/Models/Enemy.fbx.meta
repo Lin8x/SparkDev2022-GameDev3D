@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8ad0c5925c6e239478d791e2456f9f4a
+guid: 76b88b140f410814393ce1d886c93b7a
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,23 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Gun_final.001_EmissionMat
-    second: {fileID: 2100000, guid: 6b59493ab8196f548b81f594fed7ac45, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Gun_final.001_Primary_ColorMat
-    second: {fileID: 2100000, guid: 08148421520c0e541bb11e82467c7514, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Gun_final.001_Secondary_ColorMat
-    second: {fileID: 2100000, guid: 095c8e28e86e36e44b42534b954d4666, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Gun_final.001_Tertiary_ColorMat
-    second: {fileID: 2100000, guid: 6fd099d339b4ae34692c8258e4f87531, type: 2}
+      name: Robot
+    second: {fileID: 2100000, guid: 5801c201ae715c64fa490bdde957890e, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -112,12 +97,13 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
-    skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 3a5e32bef04849f44b5fe880a72a97ec,
+    type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 2
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
