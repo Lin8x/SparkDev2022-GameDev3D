@@ -37,6 +37,10 @@ public class guns_script : MonoBehaviour
     public Text all_bullet_text;
     public GameObject bullets_alert;
     public AudioSource ammo_pickup_sound;
+    public UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController fps_cam;
+    public float cam_lerp = 0.1f;
+    public AudioSource aim_sound;
+    public AudioSource pistol_reload;
 
     bool start_fire_rate = false;
     float fire_Rate = 0.8f;
@@ -50,7 +54,31 @@ public class guns_script : MonoBehaviour
 
 
     void Update()
-    {
+    {     
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            aim_sound.Play();
+        }
+        if (Input.GetKeyUp(KeyCode.Mouse1))
+        {
+            aim_sound.Play();
+        }
+
+        if (Input.GetKey(KeyCode.Mouse1))
+        {
+            if (fps_cam.cam.fieldOfView > 45)
+            {
+                fps_cam.cam.fieldOfView = fps_cam.cam.fieldOfView - Time.deltaTime * cam_lerp;
+            }            
+        }
+        else
+        {
+            if (fps_cam.cam.fieldOfView < 85)
+            {
+                fps_cam.cam.fieldOfView = fps_cam.cam.fieldOfView + Time.deltaTime * cam_lerp;
+            }             
+        }
+
         if (shotgun_bullets <= 1 || pistol_bullets <= 1)
         {
             bullets_alert.SetActive(true);
@@ -214,7 +242,7 @@ public class guns_script : MonoBehaviour
                 pistol_animator.speed = 1.5f;
                 pistol_animator.SetInteger("state", 2);
             }
-            reload_sound.Play();
+            pistol_reload.Play();
             start_fire_rate = true;
         }
     }

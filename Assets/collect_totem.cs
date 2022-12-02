@@ -18,7 +18,7 @@ public class collect_totem : MonoBehaviour
 
     private void Update()
     {
-        if(collectibles_amount >= 10)
+        if(collectibles_amount >= 5)
         {
             script_storm.start_stom_rush = true;
             collectibles_amount = 0;
