@@ -56,6 +56,7 @@ MonoBehaviour:
   exitBox: {fileID: 0}
   script_player: {fileID: 0}
   HUDFlag: 0
+  dieButtonDissapear: {fileID: 0}
 --- !u!82 &735176828277992531
 AudioSource:
   m_ObjectHideFlags: 0
