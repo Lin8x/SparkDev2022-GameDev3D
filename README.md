@@ -42,6 +42,8 @@
 
 **Download Link:** [Night Fall: Power of the Sun](https://lin8x.itch.io/night-fall)
 
+<br>
+
 **Installation Instructions:**
 
 1. **Download** the game from the link above.
